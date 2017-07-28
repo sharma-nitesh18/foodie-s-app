@@ -6,7 +6,9 @@
 
 body {
     background-color: #F3F3E8;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: algerian;
+    background-image:url('http://www.bhmpics.com/thumbs/peaches_cherries_raspberries_strawberries_blueberries_fruits-t3.jpg');
+    background-size: cover;
 }
 
 .hero {
@@ -151,4 +153,15 @@ body {
     padding: 0.4rem 1rem;
     border-radius: 4px;
     cursor: pointer;
+}
+.list{
+  background-color:black;
+  width: 20%;
+  margin:10px,auto;
+}
+
+
+.whitelist{
+color: white;
+
 }

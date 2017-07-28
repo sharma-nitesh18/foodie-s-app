@@ -14,6 +14,10 @@ foodieApp.config(function ($routeProvider) {
 		templateUrl: 'pages/restaurant.html',
 		controller: 'restaurantController'
 	})
+	.when('/fav', {
+	templateUrl: 'pages/fav.html',
+	controller: 'favController'
+})
 })
 
 foodieApp.controller('loginController',function($scope,$location) {
@@ -22,6 +26,164 @@ $scope.goToHome= function(){
 	$location.url('home')
 }
 })
+
+//  --------------------------------------------------  fav controller start ---------------------------------------
+foodieApp.controller('favController',function($scope,$location,$http) {
+
+
+	$scope.ingredients = [];
+
+//console.log($routeParams.id);
+
+  $scope.restaurants = [{
+							id: 1,
+							bestDish: {
+										name: 'Bean Salad',
+										image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+									},
+							image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+						},{
+
+						id: 2,
+						bestDish: {
+									name: 'Corn Pizza',
+									image: 'https://images.food52.com/zyrGNL1_8ZxmJ43jtBLQoyLfNvA=/753x502/c947f605-2d61-4a10-9f69-abc7dda9fffb--DSC07406.JPG'
+								},
+
+            image: 'https://images.food52.com/zyrGNL1_8ZxmJ43jtBLQoyLfNvA=/753x502/c947f605-2d61-4a10-9f69-abc7dda9fffb--DSC07406.JPG'
+          },
+          {
+								id: 3,
+								bestDish: {
+											name: 'Italian Pasta',
+											image: 'https://www.sensibus.com/deli/sites/sensibus.com/files/recipes/pasta-dish-2_0.jpg'
+										},
+
+                image: 'https://www.sensibus.com/deli/sites/sensibus.com/files/recipes/pasta-dish-2_0.jpg'
+              },
+              {
+
+										id: 4,
+										bestDish: {
+													name: 'Grilled fish',
+													image: 'https://thumbs.dreamstime.com/z/grilled-fish-served-potatoes-sauce-lemon-close-up-29801081.jpg'
+												},
+
+                    image: 'https://thumbs.dreamstime.com/z/grilled-fish-served-potatoes-sauce-lemon-close-up-29801081.jpg'
+                    }]
+
+
+
+						$scope.lists1 = [
+						{'vl' : 'vegetable'},
+						{'vl' : 'almond'},
+						{'vl' : 'corn'},
+						{'vl' : 'milk'},
+						{'vl' : 'apple'},
+					];
+					$scope.lst1 = [];
+					$scope.change1 = function(check,value){
+								if(check){
+										$scope.lst1.push(value);
+								}else{
+										 $scope.lst1.splice($scope.lst1.indexOf(value), 1);
+								}
+					};
+
+					//
+					$scope.lists2 = [
+					{'vl' : 'meat'},
+					{'vl' : 'egg'},
+					{'vl' : 'onion'},
+					{'vl' : 'lettuce'},
+					{'vl' : 'banana'},
+					];
+					$scope.lst2 = [];
+					$scope.change2 = function(check,value){
+							if(check){
+									$scope.lst2.push(value);
+							}else{
+									 $scope.lst2.splice($scope.lst2.indexOf(value), 1);
+							}
+					};
+
+
+								$scope.getFav = function(url) {
+						var data = '{"inputs":[{"data":{"image":{"url":"' + url + '"}}}]}'
+										$http({
+											'method': 'POST',
+											'url': 'https://api.clarifai.com/v2/models/bd367be194cf45149e75f01d59f77ba7/outputs',
+											'headers': {
+												'Authorization': 'Key a83cf33d81ca4f71ae7f18345e7b8ab0',
+												'Content-Type': 'application/json'
+											},
+											'data': data,
+
+										}).then(function (response) {
+													var ingredients = response.data.outputs[0].data.concepts;
+										  			var list = '';
+														//  var cboxArray = [];
+														for (var i =0;i < ingredients.length;i++) {
+															$scope.ingredients.push(ingredients[i].name);
+														}
+
+														for(var i=0;i< $scope.lst1.length;i++){
+													if ($scope.ingredients.indexOf($scope.lst1[i]) > -1) {
+
+																if($scope.ingredients.indexOf($scope.lst2[i]) > -1){
+																	// var info1 = "<h2 class='highlight-info'>You will not like this Food</h2>";
+																  console.log("Not Your FAV");
+																	$(".highlight-info").text('You will not like this Food');
+																		 $(".rest-extra").css("background-color" ,"#ea0b0b");
+
+																					break;
+																}
+																// var info2 = "<h2 class='highlight-info'>This is the food You May LIKE</h2>";
+																console.log("Your FAV");
+																$(".highlight-info").text('This is the food You May LIKE');
+																	$(".rest-extra").css("background-color" ,"#308917");
+																break;
+															 }
+
+															 else {
+																//  var info1 = "<h2 class='highlight-info'>You will not like this Food</h2>";
+																 console.log("Not Your FAV");
+																	$(".highlight-info").text('You will not like this Food');
+																	$(".rest-extra").css("background-color" ,"#ea0b0b");
+
+															 }
+
+									}
+
+
+											//console.log(list);
+										}, function (xhr) {
+																	   console.log(xhr);
+																	  });
+																}
+
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+// -----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
 foodieApp.controller('restaurantController',function($scope,$routeParams,$http) {
 	//Empty
 	//console.log($routeParams.id);
@@ -129,8 +291,8 @@ foodieApp.controller('restaurantController',function($scope,$routeParams,$http) 
  id :5,
 
  bestDish: {
-	name: 'noodles',
-	image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSRjIjFHnFUTZxYRg1VYSsjQSEYSzBs-Bdxwdscr7-yUGNYIz_ZfQ'
+	name: 'chinese n',
+	image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
           },
 					image: 'https://s-media-cache-ak0.pinimg.com/736x/db/1f/7c/db1f7c3b73ca96be67f961dc34919b64--brunch-cafe-tea-cafe.jpg'
 }]
