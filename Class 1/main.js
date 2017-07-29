@@ -95,8 +95,8 @@ foodieApp.controller('favController',function($scope,$location,$http) {
 					{'vl' : 'meat'},
 					{'vl' : 'egg'},
 					{'vl' : 'onion'},
-					{'vl' : 'lettuce'},
 					{'vl' : 'banana'},
+					{'vl' : 'lettuce'},
 					];
 					$scope.lst2 = [];
 					$scope.change2 = function(check,value){
@@ -291,7 +291,7 @@ foodieApp.controller('restaurantController',function($scope,$routeParams,$http) 
  id :5,
 
  bestDish: {
-	name: 'chinese n',
+	name: 'chinese',
 	image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
           },
 					image: 'https://s-media-cache-ak0.pinimg.com/736x/db/1f/7c/db1f7c3b73ca96be67f961dc34919b64--brunch-cafe-tea-cafe.jpg'
