@@ -74,14 +74,17 @@ body {
 .rest-wrapper {
     display: flex;
     font-family: calibri;
+
 }
 
 .rest-wrapper .image {
-    margin-right: 1rem;
+    margin: 1rem;
 }
 
 .rest-wrapper .image img {
     border-radius: 5px;
+
+
 }
 
 .rest-wrapper .rest-name {
@@ -101,7 +104,7 @@ body {
 .rest-extra {
     display: flex;
     margin-top: 1rem;
-    border-top: 1px solid #e7e7e7;
+    border-top: 5px solid #e7e7e7;
     padding: 1rem;
 }
 
@@ -147,13 +150,16 @@ body {
 }
 
 .bestDish .button {
-    display: inline-block;
+    display: block;
     background-color:#cb202d;
     color: white;
-    padding: 0.4rem 1rem;
-    border-radius: 4px;
+    padding: 0.7rem 2rem;
+    border-radius: 15px;
     cursor: pointer;
 }
+
+
+
 .list{
   background-color:black;
   width: 20%;
@@ -163,4 +169,7 @@ body {
 
 .whitelist{
 color: white;
+font-style: italic;
+font-size: 15px;
+display: block;
 }

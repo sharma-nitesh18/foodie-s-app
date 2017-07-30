@@ -1,3 +1,16 @@
+// $(function() {
+//   $('#user-email').on('input',function() {
+//     var email = $('#user-email').val();
+//     var message = 'Welcome back, '+ email;
+//     $('.welcome-message').text(message);
+//
+//
+//       });
+// });
+
+
+
+
 var foodieApp = angular.module('foodieApp',['ngRoute']);
 
 foodieApp.config(function ($routeProvider) {
@@ -38,15 +51,15 @@ foodieApp.controller('favController',function($scope,$location,$http) {
   $scope.restaurants = [{
 							id: 1,
 							bestDish: {
-										name: 'Bean Salad',
-										image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+										name: 'veg roll',
+										image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3ErNIgupC46xZiQA_LqbcNque3iNqykWOq1baJY1WjVObsT_N'
 									},
-							image: 'http://noblepig.com/images/2016/06/Avocado-and-Three-Bean-Salad-is-perfect-for-a-summertime-barbecue-side-dish.JPG'
+							image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3ErNIgupC46xZiQA_LqbcNque3iNqykWOq1baJY1WjVObsT_N'
 						},{
 
 						id: 2,
 						bestDish: {
-									name: 'Corn Pizza',
+									name: 'Cheese Pizza',
 									image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWzFVUThwked-jSOEZz0c2eAyZvOmn8LGkuTB0RfdSOjkFdC3r'
 								},
 
