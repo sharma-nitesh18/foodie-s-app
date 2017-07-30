@@ -47,29 +47,29 @@ foodieApp.controller('favController',function($scope,$location,$http) {
 						id: 2,
 						bestDish: {
 									name: 'Corn Pizza',
-									image: 'https://images.food52.com/zyrGNL1_8ZxmJ43jtBLQoyLfNvA=/753x502/c947f605-2d61-4a10-9f69-abc7dda9fffb--DSC07406.JPG'
+									image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWzFVUThwked-jSOEZz0c2eAyZvOmn8LGkuTB0RfdSOjkFdC3r'
 								},
 
-            image: 'https://images.food52.com/zyrGNL1_8ZxmJ43jtBLQoyLfNvA=/753x502/c947f605-2d61-4a10-9f69-abc7dda9fffb--DSC07406.JPG'
+            image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRWzFVUThwked-jSOEZz0c2eAyZvOmn8LGkuTB0RfdSOjkFdC3r'
           },
           {
 								id: 3,
 								bestDish: {
-											name: 'Italian Pasta',
-											image: 'https://www.sensibus.com/deli/sites/sensibus.com/files/recipes/pasta-dish-2_0.jpg'
+											name: 'Pasta',
+											image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLCLpzO1C-TIlMQH9WoECwqJXTrrtwA40ToajCsFJu6fniTYaW'
 										},
 
-                image: 'https://www.sensibus.com/deli/sites/sensibus.com/files/recipes/pasta-dish-2_0.jpg'
+                image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRLCLpzO1C-TIlMQH9WoECwqJXTrrtwA40ToajCsFJu6fniTYaW'
               },
               {
 
 										id: 4,
 										bestDish: {
-													name: 'Grilled fish',
-													image: 'https://thumbs.dreamstime.com/z/grilled-fish-served-potatoes-sauce-lemon-close-up-29801081.jpg'
+													name: 'Thai Steamed fish',
+													image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsZfWmpjeG6z0e5IE1bjDG7H5qFDxgniGmv_-wJxWnQepN1O2D'
 												},
 
-                    image: 'https://thumbs.dreamstime.com/z/grilled-fish-served-potatoes-sauce-lemon-close-up-29801081.jpg'
+                    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTsZfWmpjeG6z0e5IE1bjDG7H5qFDxgniGmv_-wJxWnQepN1O2D'
                     }]
 
 
